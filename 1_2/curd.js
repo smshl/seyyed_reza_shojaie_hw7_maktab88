@@ -2,7 +2,25 @@ import { mergeData } from "../1_1/script.js";
 
 let userData = mergeData();
 
-function read(objectData, sortBy = "uid") {
+function readUserData(objectData, sortBy = "uid") {
+	//gathers all keys used in objects of data array
+	function objectAllKeysExtractor() {
+		let keysList = [];
+		for (const obj of objectData) {
+			keysList.push(...Object.keys(obj));
+		}
+		return [...new Set(keysList)];
+	}
+
+	//validates inputs
+	if (
+		typeof objectData !== "object" ||
+		!objectAllKeysExtractor().includes(sortBy)
+	) {
+		console.log("Invalid input(s)");
+		return;
+	}
+
 	//sorts objects by properties that may not be used in all objects
 	objectData.sort(function (a, b) {
 		if (typeof a[sortBy] === "string" && typeof b[sortBy] === "string")
@@ -12,54 +30,38 @@ function read(objectData, sortBy = "uid") {
 		let y = typeof b[sortBy] === "undefined" ? Infinity : b[sortBy];
 		return x - y;
 	});
-
-	console.table(objectData);
+	console.log(userData);
+	// console.table(objectData, objectAllKeysExtractor());
 }
 
-function create(newObject) {
-	if (typeof newObject !== "object") return "not a valid input";
-	if (!Object.keys(newObject).includes("uid"))
-		return "this input has no user id";
 
-	for (const object of userData) {
-		if (object.uid === newObject.uid)
-			return "this user exsists and can not be created again";
+
+function createNewUser(newObject) {
+	//validation part
+	if (typeof newObject !== "object") {
+		console.log("not a valid input");
+		return;
 	}
-	userData.push(newObject);
+	
+	let userIds = [];
+	for (const object of userData) {
+		userIds.push(object.uid);
+		if (object.uid === newObject.uid) {
+			console.log("this user exsists and can not be created again");
+			return;
+		}
+    }
+    if (!newObject.uid) newObject = Object.assign({ uid: Math.max(...userIds) + 1 }, newObject);
+    
+    // if (Object.keys(newObject).includes("uid"))
 
-	read();
+	userData.push(newObject);
+	readUserData(userData);
 }
 
-// read(userData, "height");
-create({ uid: 566, firstName: "hamid" }, "age");
-//
-//
-//
-//
-//
-
-// create({uid:566,age:65,height:178},'age');
-// create({uid:566,age:30,height:178},'age');
-//  = [
-let x = [
-	{ name: "reza", family: "shojaie", age: 34, city: "tehran" },
-	{ name: "javad" },
-	{ name: "zaher" },
-	{ name: "samir" },
-];
-// 	{ name: "hadi" },
-// ];
-//
-// console.log(a.name);
-// console.log();
-// console.log(x);
-// console.log("----------------");
-x.sort(function (a, b) {
-	return a.name.localeCompare(b.name);
-});
-// console.log(x);
-// console.log("----------------");
-// a = a.sort((a, b) => a[0].toUpperCase() - b[0].toUpperCase());
-// console.log(a);
-
-// console.log(typeof 38);
+// readUserData(userData,'lastName');
+createNewUser({
+    firstName: 'sara',
+    lastName: 'rajabi',
+    position: 'programmer',
+    city: 'akraj'});
