@@ -1,5 +1,5 @@
 import { additionalPersonData, personData } from "./person-Data.js";
-function mergeData() {
+export function mergeData() {
 	return personData.map((person) =>
 		Object.assign(
 			person,
