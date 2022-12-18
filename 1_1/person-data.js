@@ -29,6 +29,18 @@ export let personData = [
 		firstName: "Hadi",
 		lastName: "Sadri",
 	},
+	{
+		uid: 50,
+	},
+	{
+		uid: 51,
+	},
+	{
+		uid: 52,
+	},
+	{
+		uid: 53,
+	},
 ];
 
 export let additionalPersonData = [
@@ -61,6 +73,22 @@ export let additionalPersonData = [
 		uid: 5,
 		position: "Product Manager",
 		city: "Hamedan",
+	},
+	{
+		uid: 50,
+		height:178
+	},
+	{
+		uid: 51,
+		age:38
+	},
+	{
+		uid: 52,
+		height:168
+	},
+	{
+		uid: 53,
+		age:34
 	},
 ];
 

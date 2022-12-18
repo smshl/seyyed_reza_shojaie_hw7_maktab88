@@ -7,4 +7,4 @@ export function mergeData() {
 		)
 	);
 }
-console.log(mergeData());
+// console.log(mergeData());
