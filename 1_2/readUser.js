@@ -1,6 +1,6 @@
-import { userData,params } from "../1_1/mergeData.js";
+import { userData, params } from "../1_1/mergeData.js";
 
-export function readUser(sortBy = "uid") {
+export function readUser(sortBy = "uid", tableShow = false) {
 	//validates inputs
 	if (!params.includes(sortBy)) {
 		console.log("Invalid sort parameter");
@@ -13,7 +13,12 @@ export function readUser(sortBy = "uid") {
 			return a[sortBy].localeCompare(b[sortBy]);
 		return a[sortBy] - b[sortBy];
 	});
+
+	//shows data listed in a table
+	if (tableShow) {
+		console.table(userData);
+		return;
+	}
 	console.log(userData);
-	// console.table(userData); //shows data listed in a table
 }
-// readUser();
+readUser();

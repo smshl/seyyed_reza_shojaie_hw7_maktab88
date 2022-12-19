@@ -8,8 +8,8 @@ function createUser(newUser) {
 		return;
 	}
 
-	let newUserKeys = Object.keys(newUser); //checks the new user keys to be matched with the user data
-	for (const key of newUserKeys) {
+	//checks the new user keys to be matched with the user data
+	for (const key in newUser) {
 		if (!params.includes(key)) {
 			console.log(`The key "${key}" is not used within the input data`);
 			return;
@@ -25,7 +25,7 @@ function createUser(newUser) {
 	}
 
 	userData.push(newUser);
-	readUser();
+	console.log('Data successfully created');
 }
 createUser({
 	uid: 7,
@@ -34,3 +34,4 @@ createUser({
 	position: "programmer",
 	city: "qazvin",
 });
+readUser();
