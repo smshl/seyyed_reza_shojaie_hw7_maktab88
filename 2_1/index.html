@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/087934cb6f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,23 +17,23 @@
     <div class="container col-12 d-flex dir-col ">
         <div class="menu col-12 d-flex dir-row fixed">
             <div>
-                <button class="btn" id="logo">Logo</button>
-                <button class="btn">Team</button>
-                <button class="btn">Work</button>
-                <button class="btn">Price</button>
-                <button class="btn">Contact</button>
-                <button class="dropdown btn">
-                    <span>Dropdown</span>
-                    <div class="dropdown-content btn">
-                        <p>Link</p>
-                        <p>Link</p>
-                        <p>Link</p>
-                    </div>
-                </button>
+                <button class="btn" id="logo"><i class="fa fa-home"></i>&nbsp;Logo</button>
+                <a class="btn btn-menu">Team</a>
+                <a class="btn btn-menu">Work</a>
+                <a class="btn btn-menu">Price</a>
+                <a class="btn btn-menu">Contact</a>
+                <div class="dropdown btn">
+                    Dropdown &nbsp;<i class="fa fa-caret-down"></i>
+                    <ul class="dropdown-content btn">
+                        <a>Link</a>
+                        <a>Link</a>
+                        <a>Link</a>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="img col-12 d-flex dir-col end">
-            <button class="btn" id="btn-img">LEARN W3.CSS</button>
+        <div class="img col-12 pos-relative">
+            <button class="btn pos-abs" id="btn-img">LEARN W3.CSS</button>
         </div>
         <div class="team col-12 d-flex center dir-col"><br>
             <h2>OUR TEAM</h2>

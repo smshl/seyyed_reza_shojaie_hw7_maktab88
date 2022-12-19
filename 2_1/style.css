@@ -52,21 +52,44 @@
 
 .menu {
     background-color: black;
+    
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-left: 10px;
+    /* margin: 0 24px; */
+    /* padding: 90px; */
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    /* background-color: #f9f9f9; */
-    min-width: 160px;
-    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
-    padding: 10px 0;
+    /* background-color: #d57979; */
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    /* padding: 10px; */
     z-index: 1;
+    margin-left: -16px;
+    margin-top: 8px; 
+}
+.dropdown-content>a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    /* color: sandybrown; */
+    padding:0;
+}
+.dropdown-content>a:hover {
+    background-color: #ddd;
+}
+
+.pos-relative{
+    position: relative;
+}
+.pos-abs{
+    position: absolute;
 }
 
 .dropdown:hover .dropdown-content {
@@ -74,15 +97,20 @@
     background-color: white;
     color: black;
 }
+button>span{
+    /* font-size: 16px; */
+}
 
 .img {
+    background-color: transparent;
     width: 100%;
-    min-height: 350px;
+    min-height: 650px;
     max-height: 600px;
     background: url(./images/sailboat.jpg);
     /* background-position: ; */
     /* background-repeat: ; */
-    background-size: 100% 100%;
+    background-size: 100% 92.3%;
+    z-index: -1;
 }
 
 ​ .team {}
@@ -104,7 +132,7 @@
 }
 
 .man {
-    /* display: inline-block; */
+    display: inline-block;
     width: 100%;
 }
 
@@ -132,30 +160,43 @@
 .footer {}
 
 .btn {
-    width: 100px;
+    /* width: 80px; */
     border: none;
     background-color: transparent;
     color: white;
     cursor: pointer;
     float: left;
     font-size: 16px;
-    padding: 10px 0;
+    padding: 8px 16px;
+    font-weight: 100;
+    /* margin-right: 10px; */
+}
+.btn-menu{
+    
 }
 
 .btn:hover {
-    background-color: white;
+        background-color: #dfdfdf;
     color: black;
 
+}
+.fa{
+    font: normal normal normal 14px/1 FontAwesome;
+    margin-right: 10px;
 }
 
 #btn-img {
     color: white;
-    margin-bottom: 1%;
-    margin-left: 1%;
+    /* margin-bottom: 1%;
+    margin-left: 1%; */
     background-color: black;
-    width: 200px;
-    padding: 10px 2px;
+    width: 220px;
+    padding: 12px 4px;
     font-size: 24px;
+    top: 82%;
+    left: 1%;
+    font-weight: 100;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 #btn-img:hover {
