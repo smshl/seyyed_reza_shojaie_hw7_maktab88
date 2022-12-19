@@ -2,27 +2,30 @@ import { mergeData } from "../1_1/script.js";
 
 let userData = mergeData();
 
-function readUserData(objectData, sortBy = "uid") {
+function readUser(sortBy = "uid") {
 	//gathers all keys used in objects of data array
-	function objectAllKeysExtractor() {
-		let keysList = [];
-		for (const obj of objectData) {
-			keysList.push(...Object.keys(obj));
-		}
-		return [...new Set(keysList)];
-	}
+	// function objectAllKeysExtractor() {
+	// 	let keysList = [];
+	// 	for (const obj of userData) {
+	// 		keysList.push(...Object.keys(obj));
+	// 	}
+	// 	return [...new Set(keysList)];
+	// }
+
+    let params = Object.keys(userData[0]);
+    console.log(params);
 
 	//validates inputs
 	if (
-		typeof objectData !== "object" ||
-		!objectAllKeysExtractor().includes(sortBy)
+		typeof userData !== "object" ||
+		!params.includes(sortBy)
 	) {
 		console.log("Invalid input(s)");
 		return;
 	}
 
 	//sorts objects by properties that may not be used in all objects
-	objectData.sort(function (a, b) {
+	userData.sort(function (a, b) {
 		if (typeof a[sortBy] === "string" && typeof b[sortBy] === "string")
 			return a[sortBy].localeCompare(b[sortBy]);
 
@@ -31,37 +34,52 @@ function readUserData(objectData, sortBy = "uid") {
 		return x - y;
 	});
 	console.log(userData);
-	// console.table(objectData, objectAllKeysExtractor());
+	// console.table(objectAllKeysExtractor());
 }
 
 
 
-function createNewUser(newObject) {
-	//validation part
-	if (typeof newObject !== "object") {
-		console.log("not a valid input");
-		return;
-	}
+// function createUser(newUser) {
+// 	//validation part
+// 	if (typeof newUser !== "object") {
+// 		console.log("not a valid input");
+// 		return;
+// 	}
 	
-	let userIds = [];
-	for (const object of userData) {
-		userIds.push(object.uid);
-		if (object.uid === newObject.uid) {
-			console.log("this user exsists and can not be created again");
-			return;
-		}
-    }
-    if (!newObject.uid) newObject = Object.assign({ uid: Math.max(...userIds) + 1 }, newObject);
+// 	let userIds = [];
+// 	for (const object of userData) {
+// 		userIds.push(object.uid);
+// 		if (object.uid === newUser.uid) {
+// 			console.log("this user exsists and can not be created again");
+// 			return;
+// 		}
+//     }
+//     if (!newUser.uid) newUser = Object.assign({ uid: userIds[userIds.length - 1] + 1 }, newUser);
     
-    // if (Object.keys(newObject).includes("uid"))
+// 	userData.push(newUser);
+// 	readUser();
+// }
 
-	userData.push(newObject);
-	readUserData(userData);
-}
+// function updateUser(user) {
+//     if (!user.uid) console.log('no userId');
+//     for (const item of userData) {
+//         if (item.uid === user.uid) {
+//             item.firstName=user.firstName;
+//             item.firstName=user.lastName;
+//         }
+//     }
+    
+// }
 
-// readUserData(userData,'lastName');
-createNewUser({
-    firstName: 'sara',
-    lastName: 'rajabi',
-    position: 'programmer',
-    city: 'akraj'});
+readUser('lastName');
+// createUser({uid:50,
+//     firstName: 'sara',
+//     lastName: 'rajabi',
+//     position: 'programmer',
+//     city: 'karaj'});
+// createUser({
+//     firstName: 'sohrab',
+//     lastName: 'azimi',
+//     position: 'programmer',
+//     city: 'saveh'});
+
